@@ -1,0 +1,72 @@
+# ===================================
+# Global
+# ===================================
+
+# Node dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.out/
+.next/
+coverage/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.swp
+
+# ===================================
+# Frontend (Next.js + TypeScript)
+# ===================================
+
+# Next.js build outputs
+frontend/.next/
+frontend/out/
+
+# TypeScript build outputs
+frontend/**/*.tsbuildinfo
+
+# ===================================
+# Backend (Express + TypeScript)
+# ===================================
+
+# Compiled JS from TS
+backend/dist/
+backend/**/*.js
+backend/**/*.js.map
+backend/**/*.tsbuildinfo
+
+# Nodemon / PM2 logs or temp files
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===================================
+# Misc
+# ===================================
+
+# Lock files (optional, if you use only one package manager)
+# Uncomment if you use pnpm exclusively
+# package-lock.json
+# yarn.lock
+# *.tgz
