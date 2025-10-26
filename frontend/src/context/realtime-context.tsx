@@ -42,7 +42,7 @@ export function RealTimeProvider({ children }: { children: React.ReactNode }) {
   const [socket, setSocket] = useState<Socket | null>(null)
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io(`${process.env.NEXT_PUBLIC_SUPPORT_URL}??"http://localhost:5000"`, {
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 5000,
