@@ -45,6 +45,12 @@ router.post('/:id/vote', (req, res) => {
     return res.status(404).json({ error: 'Poll not found' });
   }
 
+  // Emit vote update event to all connected clients
+  (req as any).io.emit('vote-update', {
+    pollId: req.params.id,
+    updatedPoll: updatedPoll
+  });
+
   res.json(updatedPoll);
 });
 
@@ -54,6 +60,12 @@ router.post('/:id/like', (req, res) => {
   if (!updatedPoll) {
     return res.status(404).json({ error: 'Poll not found' });
   }
+
+  // Emit like update event to all connected clients
+  (req as any).io.emit('like-update', {
+    pollId: req.params.id,
+    updatedPoll: updatedPoll
+  });
 
   res.json(updatedPoll);
 });

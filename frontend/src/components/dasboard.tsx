@@ -33,7 +33,7 @@ export default function Dashboard() {
         <div className="mt-8 mb-8">
           <button
             onClick={() => setShowCreator(!showCreator)}
-            className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg"
+            className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
           >
             {showCreator ? "Cancel" : "+ Create New Poll"}
           </button>
@@ -57,7 +57,7 @@ export default function Dashboard() {
             <button
               key={sort}
               onClick={() => setSortBy(sort)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 whitespace-nowrap ${
                 sortBy === sort
                   ? "bg-blue-500 text-white shadow-md"
                   : "bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:bg-blue-50"

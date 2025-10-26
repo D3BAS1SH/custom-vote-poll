@@ -56,7 +56,7 @@ export default function PollCard({ poll }: PollCardProps) {
                   ? "border-blue-500 bg-blue-50"
                   : hasVoted
                     ? "border-gray-200 bg-gray-50 cursor-not-allowed"
-                    : "border-gray-200 hover:border-blue-300 hover:bg-blue-50 cursor-pointer"
+                    : "border-gray-200 hover:border-blue-300 cursor-pointer"
               }`}
             >
               <div className="flex items-center justify-between mb-2">
@@ -82,11 +82,11 @@ export default function PollCard({ poll }: PollCardProps) {
         <button
           onClick={handleLike}
           disabled={isLiking}
-          className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 ${
+          className={`flex items-center justify-center gap-2 w-12 h-10 rounded-lg transition-all duration-200 ${
             hasLiked ? "bg-red-100 text-red-600" : "bg-gray-100 text-gray-600 hover:bg-red-100 hover:text-red-600"
           }`}
         >
-          <Heart size={18} className={`transition-all duration-200 ${hasLiked ? "fill-current scale-110" : ""}`} />
+          <Heart size={18} className={`transition-all duration-200 ${hasLiked ? "fill-current" : ""}`} />
           <span className="text-sm font-medium">{poll.likes}</span>
         </button>
       </div>
