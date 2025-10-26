@@ -11,6 +11,10 @@ router.post('/', (req: Request, res: Response) => {
   }
 
   const poll = pollService.createPoll(question, options);
+
+  // Emit an event to all clients about the new poll
+  (req as any).io.emit('poll-created', poll);
+
   res.status(201).json(poll);
 });
 

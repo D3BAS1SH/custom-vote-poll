@@ -16,12 +16,22 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
+// Middleware to attach the socket.io instance to the request object
+app.use((req, res, next) => {
+  (req as any).io = io;
+  next();
+});
+
 // Routes
 app.use('/api/polls', pollRoutes);
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
   console.log('A user connected');
+
+  socket.on('poll-created', (data) => {
+    io.emit('poll-created', data);
+  });
 
   socket.on('vote', (data) => {
     io.emit('vote-update', data);
