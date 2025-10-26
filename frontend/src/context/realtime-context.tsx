@@ -75,7 +75,7 @@ export function RealTimeProvider({ children }: { children: React.ReactNode }) {
     // Fetch initial polls
     const fetchPolls = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/polls")
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SUPPORT_URL??'http://localhost:5000'}/api/polls`)
         if (!response.ok) throw new Error("Failed to fetch polls")
         const data = await response.json()
         setPolls(data)
@@ -95,7 +95,7 @@ export function RealTimeProvider({ children }: { children: React.ReactNode }) {
 
   const createPoll = useCallback(async (question: string, options: string[]) => {
     try {
-      const response = await fetch("http://localhost:5000/api/polls", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPPORT_URL??'http://localhost:5000'}/api/polls`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question, options }),
@@ -108,7 +108,7 @@ export function RealTimeProvider({ children }: { children: React.ReactNode }) {
 
   const votePoll = useCallback(async (pollId: string, optionId: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/polls/${pollId}/vote`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPPORT_URL??'http://localhost:5000'}/api/polls/${pollId}/vote`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ optionId }),
@@ -122,7 +122,7 @@ export function RealTimeProvider({ children }: { children: React.ReactNode }) {
 
   const likePoll = useCallback(async (pollId: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/polls/${pollId}/like`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPPORT_URL??'http://localhost:5000'}/api/polls/${pollId}/like`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
